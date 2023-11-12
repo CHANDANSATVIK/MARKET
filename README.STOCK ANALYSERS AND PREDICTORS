@@ -46,7 +46,7 @@ prophet
 statsmodels
 scikit-learn
 xgboost
-#Usage
+# Usage
 Clone the repository and install the required dependencies.
 Update the ticker, start_date, and end_date for the desired stock and time range.
 Run the script to perform stock analysis and forecasting.
