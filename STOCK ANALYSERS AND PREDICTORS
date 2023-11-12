@@ -1,0 +1,52 @@
+# Stock Price Analysis and Forecasting
+## Overview
+This Python script provides an analysis of stock prices using various financial ratios and machine learning techniques. It aims to generate buy or sell signals based on predefined criteria, forecast future prices using Prophet and SARIMAX (ARIMA) models, and utilize the XGBoost algorithm for enhanced predictions.
+
+## Features
+### 1. Data Download and Preprocessing
+Data Source: Yahoo Finance API
+Date Range: From 'START_DATE' to 'END_DATE'
+Financial Ratios Calculated:
+Price-to-Earnings (P/E)
+Price-to-Book (P/B)
+Daily Change and Return
+Price-to-Book Ratio (PB Ratio)
+Growth Score (5-day rolling mean)
+Durability Score (20-day rolling mean)
+Momentum Score (30-day rolling mean)
+Profitability Score (5-day rolling mean)
+Red Flags (Difference between the maximum close price in the last 10 days and the current close price)
+### 2. Intrinsic Value Calculation
+Intrinsic value is calculated as 90% of the closing stock price.
+### 3. Buy/Sell Signal Generation
+Buy Signal: Triggered when Red Flags exceed 0.05
+Sell Signal: Triggered when Red Flags drop below -0.05
+### 4. Machine Learning for Price Prediction
+Features: P/E, P/B, Change, Return, PB Ratio, Growth Score, Durability Score, Momentum Score, Profitability Score
+Target: Closing stock price shifted by one day
+Algorithm: XGBoost Regressor with hyperparameter tuning using GridSearchCV
+### 5. Time Series Forecasting
+Prophet Forecasting:
+Utilizes Facebook Prophet to forecast stock prices.
+SARIMAX (ARIMA) Forecasting:
+Applies Seasonal AutoRegressive Integrated Moving Average (ARIMA) model using statsmodels.
+### 6. Visualization
+Plots the stock price along with intrinsic value, buy/sell signals, and forecasted prices from Prophet and SARIMAX.
+### 7. Right Prices to Buy and Sell
+Calculates the right prices to buy and sell based on the last intrinsic value and the last forecasted price.
+### 8. Additional Information
+The script can be extended or modified for specific stock analysis and forecasting requirements.
+Customize intrinsic value calculation and buy/sell signal criteria as needed.
+## Dependencies
+pandas
+numpy
+yfinance
+matplotlib
+prophet
+statsmodels
+scikit-learn
+xgboost
+#Usage
+Clone the repository and install the required dependencies.
+Update the ticker, start_date, and end_date for the desired stock and time range.
+Run the script to perform stock analysis and forecasting.
