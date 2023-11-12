@@ -1,0 +1,48 @@
+# Stock Price Analysis and Forecasting
+## Overview
+This Python script analyzes historical stock prices, calculates financial ratios, generates buy/sell signals based on predefined criteria, and forecasts future stock prices using two different models: Facebook Prophet and SARIMAX (ARIMA). The script also provides insights into the right prices to buy and sell the stock and an analyzed price to sell for booking profit.
+
+## Features
+### 1. Data Collection and Preprocessing
+Data Source: Yahoo Finance API
+Date Range: From 'START_DATE' to 'END_DATE'
+Financial Ratios Calculated:
+Price-to-Earnings (P/E)
+Price-to-Book (P/B)
+Daily Change and Return
+Price-to-Book Ratio (PB Ratio)
+Growth Score (5-day rolling mean)
+Durability Score (20-day rolling mean)
+Momentum Score (30-day rolling mean)
+Profitability Score (5-day rolling mean)
+Red Flags (Difference between the maximum close price in the last 10 days and the current close price)
+### 2. Intrinsic Value Calculation
+Intrinsic value is calculated as 90% of the closing stock price.
+### 3. Buy/Sell Signal Generation
+Buy Signal: Triggered when Red Flags exceed 0.05
+Sell Signal: Triggered when Red Flags drop below -0.05
+Analyzed Price to Sell for Booking Profit: If there are recent sell signals, an analyzed price to sell is calculated as 110% of the last sell signal.
+### 4. Time Series Forecasting
+Prophet Forecasting:
+Utilizes Facebook Prophet to forecast stock prices.
+SARIMAX (ARIMA) Forecasting:
+Applies Seasonal AutoRegressive Integrated Moving Average (ARIMA) model using statsmodels.
+### 5. Visualization
+Plots the stock price along with intrinsic value, buy/sell signals, and forecasted prices from Prophet and SARIMAX.
+### 6. Output
+Provides the right prices to buy and sell the stock based on the last intrinsic value and the last forecasted price.
+If there are recent sell signals, an analyzed price to sell for booking profit is displayed.
+## Dependencies
+pandas
+numpy
+yfinance
+matplotlib
+prophet
+statsmodels
+## Usage
+Clone the repository and install the required dependencies.
+Update the ticker, start_date, and end_date for the desired stock and time range.
+Run the script to perform stock analysis and forecasting.
+Customization
+Modify the financial ratios, buy/sell signal criteria, and intrinsic value calculation as needed.
+Adjust forecasting models and parameters for more accurate predictions.
